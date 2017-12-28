@@ -1,5 +1,7 @@
 # How to setup docker-in-docker environment for Gitlab CI
 
+Ref: https://docs.gitlab.com/ce/ci/docker/using_docker_build.html#runner-configuration
+
 1. Register to Gitlab
 
 ```
