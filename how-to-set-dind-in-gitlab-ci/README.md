@@ -64,4 +64,22 @@ $(aws ecr get-login --no-include-email --region us-east-1)
 ```
 or
 
-Provide the AWS Access key and Secret key in ~/.aws/credentials, then config ECR policy via ECS portal to allow actions for the configured user.
+Refer to https://github.com/awslabs/amazon-ecr-credential-helper
+
+```
+git clone https://github.com/awslabs/amazon-ecr-credential-helper.git
+cd amazon-ecr-credential-helper
+make docker
+cp bin/local/docker-credential-ecr-login /usr/local/bin
+```
+
+1. Configure ~/.aws/credentials
+2. Place the docker-credential-ecr-login binary on your PATH and set the contents of your ~/.docker/config.json file to be:
+
+```
+{
+	"credsStore": "ecr-login"
+}
+```
+
+Now there is no need to use docker login or docker logout.
